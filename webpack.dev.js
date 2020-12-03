@@ -4,9 +4,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     devtool: 'eval-cheap-module-source-map',
+    entry: {
+        'Main': ['./src/index.js'],
+    }, 
     entry: './src/index.js',
     devServer: {
-        port: 8080,
+        port: 8088, // this generally will need to be different!
         contentBase: path.join(__dirname, "dist")
     },
     node: {
@@ -80,8 +83,17 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './index.html',
-            inject: true
-        })
+            title: 'Page 1',
+            template: '.src/templates/index.html',
+            inject: true,
+            chunks: ['Main'],
+        }),
+        // Add other pages below
+        // new HtmlWebpackPlugin({
+        //     title: 'Page 1',
+        //     template: '.src/templates/index.html',
+        //     inject: true,
+        //     chunks: ['Main'],
+        // }),
     ]
 };
