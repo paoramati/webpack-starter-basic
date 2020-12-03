@@ -74,8 +74,8 @@ async function kickstart() {
     newIndex = newIndex.replace(/{{projectName}}/g, projectName);
     const newWebpackProdFile = webpackProdFile.replace(/{{projectName}}/g, projectName);
 
-    ui.log.write('Writing new index.html');
-    fs.writeFileSync('./index.html', newIndex, 'utf8');
+    // ui.log.write('Writing new index.html');
+    // fs.writeFileSync('./index.html', newIndex, 'utf8');
     ui.log.write('Writing new webpack.prod.js');
     fs.writeFileSync('./webpack.prod.js', newWebpackProdFile, 'utf8');
 
