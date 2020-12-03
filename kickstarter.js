@@ -24,7 +24,7 @@ async function kickstart() {
             type: 'input',
             name: 'mobileHeaderColor',
             message: 'What color would you like the mobile header to be? (https://bit.ly/1LX2mtq)',
-            default: '#ff4970'
+            default: '#0262aa'
         }
     ]);
 
@@ -64,7 +64,7 @@ async function kickstart() {
     ui.log.write('Removing package-lock.json');
     fs.unlinkSync('./package-lock.json');
 
-    const indexFile = fs.readFileSync('.src/templates/index.html', 'utf8');
+    const indexFile = fs.readFileSync('./src/templates/index.html', 'utf8');
 
     ui.log.write(`Setting mobile header color to ${mobileHeaderColor}`);
     let newIndex = indexFile.replace(/{{mobileHeaderColor}}/g, mobileHeaderColor);
@@ -75,7 +75,7 @@ async function kickstart() {
     const newWebpackProdFile = webpackProdFile.replace(/{{projectName}}/g, projectName);
 
     ui.log.write('Writing new index.html');
-    fs.writeFileSync('.src/templates/index.html', newIndex, 'utf8');
+    fs.writeFileSync('./src/templates/index.html', newIndex, 'utf8');
     ui.log.write('Writing new webpack.prod.js');
     fs.writeFileSync('./webpack.prod.js', newWebpackProdFile, 'utf8');
 
