@@ -7,7 +7,6 @@ module.exports = {
     entry: {
         'Main': ['./src/index.js'],
     }, 
-    entry: './src/index.js',
     devServer: {
         port: 8088, // this generally will need to be different!
         contentBase: path.join(__dirname, "dist")
@@ -84,7 +83,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Page 1',
-            template: '.src/templates/index.html',
+            template: './src/templates/index.html',
             inject: true,
             chunks: ['Main'],
         }),

@@ -90,7 +90,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Page 1',
-            template: '.src/templates/index.html',
+            template: './src/templates/index.html',
             inject: true,
             chunks: ['Main'],
         }),
